@@ -14,7 +14,7 @@ export default function Hero() {
         transition={{ duration: 1.5 }}
         className="relative"
       >
-        <h1 className="text-foreground text-5xl leading-13 font-clash-display lg:max-w-[508px] mb-10">
+        <h1 className="text-foreground text-5xl font-semibold leading-16 lg:max-w-[508px] mb-10">
           Designing Impactful Digital Experiences
         </h1>
         <p className="text-xl leading-8 text-secondary-foreground max-w-[408px] mb-10">
