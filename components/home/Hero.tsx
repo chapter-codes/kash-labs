@@ -42,15 +42,15 @@ export default function Hero() {
         initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8 }}
         animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
         transition={{ duration: 2 }}
-        className="relative overflow-hidden basis-1/2 origin-bottom-right bg-hero-background rounded-2xl"
+        className="relative overflow-hidden basis-1/2 max-w-[548px] max-h-[533px]  origin-bottom-right bg-hero-background rounded-2xl"
       >
         <motion.img
-          initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8 }}
+          initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8, y: 80 }}
           animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
           transition={{ duration: 2 }}
-          src="/images/hero.svg"
+          src="/images/hero.png"
           alt="Hero Image"
-          className="w-full h-auto rounded-lg"
+          className="w-full h-full rounded-lg object-cover object-top "
         />
         <motion.div
           initial={{ opacity: 0, bottom: "-20%" }}

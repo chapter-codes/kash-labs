@@ -67,7 +67,7 @@ export default function Links() {
               className="w-5 hidden dark:block"
             />
             <img
-              src="/icons/moon.svg"
+              src="/icons/moon.png"
               alt="dark mode toggle"
               className="w-5 block dark:hidden"
             />
