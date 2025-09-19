@@ -10,7 +10,7 @@ import CustomDiv from "@/components/common/CustomDiv";
 export default function Header() {
   return (
     <motion.header
-      className=" flex items-center justify-center h-header-height bg-background   backdrop-blur-md sticky top-0"
+      className="flex items-center justify-center h-header-height bg-background/40 backdrop-blur-md sticky top-0 z-50"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1.5 }}
