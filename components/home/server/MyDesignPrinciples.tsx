@@ -12,7 +12,7 @@ export default function MyDesignPrinciples() {
 
       <div className="flex gap-x-5 gap-y-10  flex-wrap justify-center max-w-9/10 mx-auto">
         {designPrinciples.map((principle) => (
-          <div className="p-7.5 bg-card-bg  min-w-fit rounded-[20px]">
+          <article className="p-7.5 bg-card-bg  min-w-fit rounded-[20px]" key={principle.title}>
             <div
               className="border-l-4"
               style={{ borderColor: principle.color }}
@@ -24,7 +24,7 @@ export default function MyDesignPrinciples() {
                 {principle.description}
               </p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

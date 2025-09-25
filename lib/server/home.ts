@@ -1,35 +1,39 @@
-'server only'
+"server only";
 
 export const projectsData = [
   {
-    logo: '/images/rare-breed.png', // Replace with actual path or import
-    title: 'Rare Breed',
-    category: 'Web Design',
+    logo: "/images/rare-breed.png",
+    title: "Rare Breed",
+    category: "Web Design",
     description:
-      'A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.',
+      "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
+    link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
   },
   {
-    logo: '/images/igbo-club.png',
-    title: 'Igbo Ambassadors Club UX',
-    category: 'Web Design',
+    logo: "/images/igbo-club.png",
+    title: "Igbo Ambassadors Club UX",
+    category: "Web Design",
     description:
-      'A global network uniting and empowering leaders among the Igbo diaspora, promoting Igbo culture, fostering pride, professionalism, community, and global engagement.',
+      "A global network uniting and empowering leaders among the Igbo diaspora, promoting Igbo culture, fostering pride, professionalism, community, and global engagement.",
+    link: "https://www.behance.net/gallery/218383579/IGBO-AMBASSADORS-LOGO",
   },
   {
-    logo: '/images/rare-breed.png',
-    title: 'Rare Breed',
-    category: 'Web Design',
+    logo: "/images/rare-breed.png",
+    title: "Rare Breed",
+    category: "Web Design",
     description:
-      'A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.',
+      "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
+    link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
   },
   {
-    logo: '/images/dearly-beloved.png',
-    title: 'Dearly Beloved',
-    category: 'Web Design',
+    logo: "/images/dearly-beloved.png",
+    title: "Dearly Beloved",
+    category: "Web Design",
     description:
-      'A youth-operated benefit spreading God’s love, nurturing purpose, and raising a generation of love in local cities and rural towns.',
+      "A youth-operated benefit spreading God’s love, nurturing purpose, and raising a generation of love in local cities and rural towns.",
+    link: "https://www.behance.net/gallery/218402817/DEARLY-BELOVED-LOGO",
   },
-]
+];
 
 export const designPrinciples = [
   {
@@ -63,6 +67,3 @@ export const designPrinciples = [
     color: "#B266FF",
   },
 ];
-
-
-

@@ -3,4 +3,5 @@ export type Project = {
   title: string;
   category: string;
   description: string;
+  link: string;
 };

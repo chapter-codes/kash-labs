@@ -8,6 +8,8 @@
   --radius:0.625rem;
   --background:#F7F7F7;
   --card-bg: #fff;
+  --card-hover-bg:#FCFCFC;
+  --card-hover-border:#E9E9E9;
   --foreground:#1E1E1E;
   --btn-outline-border:#1F1F1F;
   --btn-outline-foreground:#1E1E1E;
@@ -52,8 +54,8 @@
   --sidebar-ring:oklch(0.708 0 0);
 
   /* user definesd */
-  --header-height: 70px
-
+  --header-height: 70px;
+  --view-project-bg:#1e1e1e40;
 }
 
 .dark {
@@ -61,6 +63,8 @@
   --foreground:oklch(0.985 0 0);
   --secondary-foreground: #ABB6C6;
   --hero-image-bg :#1E1E1E;
+  --card-hover-bg:#2B2B2B;
+  --card-hover-border:#383535;
   --card-bg:#242424;
   --btn-outline-border:#FFFFFF;
   --btn-outline-foreground:#ffffff;
@@ -146,12 +150,16 @@
   --color-btn-bg: var(--btn-bg);
   --color-hero-image-bg: var(--hero-image);
   --color-card-bg: var(--card-bg);
+  --color-card-hover-bg: var(--card-hover-bg);
   --color-btn-outline-border: var(--btn-outline-border  );
   --color-hero-background: var(--hero-background  );
   --color-card-border-stroke: var(--card-border-stroke  );
   --color-tag-bg: var(--tag-bg  );
   --color-tag-foreground: var(--tag-foreground  );
   --color-tag-border-bg: var(--tag-border-bg  );
+  --color-card-hover-bg: var(--card-hover-bg  );
+  --color-card-hover-border: var(--card-hover-border );
+  --color-view-project-bg: var(--view-project-bg );
 
 
   /* fonts */
