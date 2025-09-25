@@ -36,30 +36,33 @@ export const designPrinciples = [
     title: "Understand Your Audience",
     description:
       "I dig deep into real user needs and avoid relying on guesswork. Every decision is backed by research and real-world behavior.",
-    color: "yellow", 
+    color: "#FFB84D",
   },
   {
     title: "Clarity First",
     description:
       "I design with structure and flow so users always know where they are and what to do next — no confusion, no clutter.",
-    color: "blue",
+    color: "#4DA6FF",
   },
   {
     title: "Consistency Matters",
     description:
       "I use familiar patterns and language to create trust and reliability, while keeping the experience fresh and engaging.",
-    color: "green",
+    color: "#6DD47E",
   },
   {
     title: "Design for Impact",
     description:
       "I ensure my designs adapt to any device, environment, or situation — functionality comes first, always.",
-    color: "red",
+    color: "#FF6666",
   },
   {
     title: "Visual Appeal with Purpose",
     description:
       "I aim for beauty with intention. My visuals are crafted to be both delightful and accessible, making every interaction a pleasure.",
-    color: "purple",
+    color: "#B266FF",
   },
 ];
+
+
+

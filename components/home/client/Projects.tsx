@@ -93,7 +93,7 @@ export default function Projects({ projects }: ProjectsProps) {
         ))}
       </section>
 
-      <section className="flex justify-center mt-15">
+      <section className="flex justify-center mt-12">
         <Button asChild className="max-w-fit ">
           <Link href={"/portfolio"}>View more projects</Link>
         </Button>

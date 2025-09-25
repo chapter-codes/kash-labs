@@ -156,6 +156,7 @@
 
   /* fonts */
   --font-poppins: var(--font-poppins);
+  --font-open-sans: var(--font-open-sans);
   --font-clash-display: var(--font-clash-display), sans-serif;
   --spacing-header-height:var(--header-height)
 ;

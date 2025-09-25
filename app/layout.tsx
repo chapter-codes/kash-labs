@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Open_Sans } from "next/font/google";
 // import localFont from "next/font/local";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -9,7 +9,13 @@ import Header from "@/components/home/server/Header";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", ], // Add the desired font weights as needed
+  weight: ["400"], // Add the desired font weights as needed
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+  weight: ["700"], // Add the desired font weights as needed
 });
 
 const ClashDisplay = localFont({
@@ -36,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en"className=''>
       <body
-        className={`${poppins.variable} ${ClashDisplay.variable }  antialiased bg-background font-poppins`}
+        className={`${poppins.variable} ${ClashDisplay.variable } ${openSans.variable} antialiased bg-background font-poppins`}
       >
         <Header />
         {children}
