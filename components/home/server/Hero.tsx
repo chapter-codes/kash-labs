@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client"
-import { Button } from "../ui/button";
-import CustomDiv from "../common/CustomDiv";
+import { Button } from "../../ui/button";
+import CustomDiv from "../../common/CustomDiv";
 import Link from "next/link";
 
 

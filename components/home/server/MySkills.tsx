@@ -1,10 +1,10 @@
 // library imports
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import Image from "next/image"
 
 
-import CustomDiv from "../common/CustomDiv";
-import Section from "../common/Section";
+import CustomDiv from "../../common/CustomDiv";
+import Section from "../../common/Section";
 
 const designServices = [
   {
@@ -50,7 +50,7 @@ const designServices = [
 
 const DesignServices = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-x md:divide-y-0 border-card-border-stroke bg-white dark:bg-card-bg p-8 rounded-xl">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-x md:divide-y-0 border-card-border-stroke bg-card-bg p-8 rounded-xl">
       {designServices.map((section, index) => (
         <div key={index} className="  py-4 px-5">
           <div className="flex items-center gap-2 mb-5">

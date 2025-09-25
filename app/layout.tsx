@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 // import localFont from "next/font/local";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/home/Header";
+import Header from "@/components/home/server/Header";
 // import { img } from "motion/react-client";
 
 const poppins = Poppins({

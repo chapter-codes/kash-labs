@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 
 
 export default function Links() {
@@ -78,7 +78,7 @@ export default function Links() {
         <li>
           <Button asChild>
             <Link
-              href={"/#about"}
+              href={"/#contact"}
               className=" "
             >
               Contact
