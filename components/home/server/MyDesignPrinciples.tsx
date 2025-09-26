@@ -1,9 +1,10 @@
 import Section from "@/components/common/Section";
+import CustomDiv from "@/components/common/CustomDiv";
 import { designPrinciples } from "@/lib/server/home";
 
 export default function MyDesignPrinciples() {
   return (
-    <section className="pb-15">
+    <CustomDiv style="lg:w-9/10 pb-15">
       <Section
         title="My Design Principles"
         description="The Foundation of Great Design"
@@ -27,6 +28,6 @@ export default function MyDesignPrinciples() {
           </article>
         ))}
       </div>
-    </section>
+    </CustomDiv>
   );
 }

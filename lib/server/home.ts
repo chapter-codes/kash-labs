@@ -67,3 +67,47 @@ export const designPrinciples = [
     color: "#B266FF",
   },
 ];
+
+
+export const testimonials = [
+  {
+    name: "Rebecca Thompson",
+    role: "Family Law Client",
+    rating: 5,
+    testimonial:
+      "I’ve tried so many products over the years, but nothing has nourished my curls like the shampoo I got here. My hair feels softer, shinier, and healthier than ever. Plus, the delivery was fast and customer service was top-notch!",
+    image: "/images/testimonial1.png",
+  },
+  {
+    name: "Samuel Lee",
+    role: "Startup Founder",
+    rating: 5,
+    testimonial:
+      "The design team exceeded my expectations! The branding work gave our startup a professional edge and the process was smooth from start to finish.",
+    image: "/images/testimonial2.png",
+  },
+  {
+    name: "Priya Patel",
+    role: "Marketing Director",
+    rating: 4,
+    testimonial:
+      "Great communication and attention to detail. The website redesign helped us increase engagement and our customers love the new look.",
+    image: "/images/testimonial1.png",
+  },
+  {
+    name: "Carlos Ramirez",
+    role: "Small Business Owner",
+    rating: 5,
+    testimonial:
+      "Fast turnaround and creative solutions! I appreciated the regular updates and the final product was exactly what I envisioned.",
+    image: "/images/testimonial2.png",
+  },
+  {
+    name: "Emily Chen",
+    role: "Nonprofit Coordinator",
+    rating: 5,
+    testimonial:
+      "Working with this team was a pleasure. They understood our mission and delivered a website that truly represents our values.",
+    image: "/images/testimonial1.png",
+  },
+];
