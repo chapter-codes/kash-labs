@@ -21,11 +21,11 @@ export default function Testimonial() {
       <Carousel>
         <CarouselContent className="relative flex gap-5 p-2 ml-0!">
           {testimonials.map((testimonial, index) => (
-            <article className="self-stretch basis-1/2 shrink-0   bg-card-bg p-9 max-w-[560px] rounded-[18.5px]" key={testimonial.name + index}>
+            <article className="self-stretch md:  basis-1/2 shrink-0   bg-card-bg p-9 max-w-[560px] rounded-[18.5px]" key={testimonial.name + index}>
               <div className="flex gap-3 ">
                 <Image
                   width={80}
-                  height={80}
+                  height={80} 
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="size-20 rounded-full object-cover"

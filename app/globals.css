@@ -12,7 +12,7 @@
   --card-hover-border:#E9E9E9;
   --foreground:#1E1E1E;
   --btn-outline-border:#1F1F1F;
-  --btn-outline-foreground:#1E1E1E;
+  --bg-3:#ffffff;
   --hero-background:#E6E6E6;
   --card-border-stroke:#E9E9E9;
   --tag-bg:#005EFF10;
@@ -67,7 +67,7 @@
   --card-hover-border:#383535;
   --card-bg:#242424;
   --btn-outline-border:#FFFFFF;
-  --btn-outline-foreground:#ffffff;
+  --bg-3:#1E1E1E;
   --hero-background: #1E1E1E;
   --card-border-stroke:#383535;
   --tag-bg:#82B0FF10;
@@ -160,6 +160,7 @@
   --color-card-hover-bg: var(--card-hover-bg  );
   --color-card-hover-border: var(--card-hover-border );
   --color-view-project-bg: var(--view-project-bg );
+  --color-bg-3: var(--bg-3 );
 
 
   /* fonts */

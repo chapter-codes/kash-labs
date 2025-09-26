@@ -5,3 +5,15 @@ export type Project = {
   description: string;
   link: string;
 };
+
+export type ContactFormstate ={
+  name?: string ;
+  email?: string ;
+  message?: string ;
+    success: boolean;
+    error:{
+      name?: string;
+      email?: string;
+      message?: string;
+    }
+}

@@ -1,4 +1,5 @@
 import Hero from "@/components/home/server/Hero";
+import LetsWorkTogether from "@/components/home/server/LetsWorkTogether";
 import MyDesignPrinciples from "@/components/home/server/MyDesignPrinciples";
 import MyPortfolio from "@/components/home/server/MyPortfolio";
 import MySkills from "@/components/home/server/MySkills";
@@ -13,6 +14,7 @@ export default function Portfolio() {
       <MyPortfolio />
       <MyDesignPrinciples />
       <Testimonial />
+      <LetsWorkTogether />
     </>
   );
 }
