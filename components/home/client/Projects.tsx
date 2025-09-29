@@ -55,7 +55,7 @@ export default function Projects({ projects }: ProjectsProps) {
               variant={"outline"}
               className={`${
                 category == cat.key || (index == 0 && !category)
-                  ? "bg-btn-bg! hover:bg-btn-bg/90! text-primary-foreground! hover:border-background!"
+                  ? "bg-btn-bg! hover:bg-btn-bg/90! text-white! hover:border-background!"
                   : "hover:border-btn-outline-border!"
               } transition-colors duration-300 border-background! `}
               asChild

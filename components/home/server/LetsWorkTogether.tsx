@@ -9,7 +9,7 @@ import { handleContactForm } from "../action";
 
 export default async function LetsWorkTogether() {
   return (
-    <div className="bg-bg-3 py-[4.25rem] mt-19">
+    <div className="bg-bg-3 py-[4.25rem] mt-19 mb-0">
       <CustomDiv style="flex  md:gap-16">
         <div className="basis-1/2 ">
           <Section title="Let’s work together" description="" style="my-0!" />

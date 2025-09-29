@@ -7,13 +7,19 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <CustomDiv style="flex  flex-col md:flex-row justify-between items-center gap-4 h-[calc(100svh-var(--header-height))] md:h-[calc(100vh-100px)] overflow-hidden my-0!">
+    <CustomDiv style="relative flex  flex-col md:flex-row justify-between items-center gap-4 h-[calc(100svh-var(--header-height))] md:h-[calc(100vh-100px)] overflow-hidden my-0!">
+      {/* <div className="hero-bg-light" style={{ top: "0", left: "0" }} />
+      <div
+        className="hero-bg-light"
+        style={{ bottom: "10%", right: "0%", animationDelay: "2s" }}
+      /> */}
       <motion.div
         initial={{ left: "-50%" }}
         animate={{ left: 0 }}
         transition={{ duration: 1.5 }}
         className="relative"
       >
+        {/* Your hero image */}
         <h1 className="text-foreground text-5xl font-semibold leading-16 lg:max-w-[508px] mb-10">
           Designing Impactful Digital Experiences
         </h1>

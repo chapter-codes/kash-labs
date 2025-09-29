@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 // 
 import "./globals.css";
 import Header from "@/components/home/server/Header";
+import Footer from "@/components/home/server/Footer";
 
 
 const poppins = Poppins({
@@ -47,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="m-0 p-0">
       <title>KashLabs | Home</title>
       <link rel="icon" href="/icons/logo.svg" />
       <body
@@ -55,6 +56,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
