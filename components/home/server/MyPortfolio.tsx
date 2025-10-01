@@ -8,7 +8,7 @@ export default async function MyPortfolio() {
   
 
   return (
-    <CustomDiv>
+    <CustomDiv style=''>
       <Suspense fallback={<div>Loading projects...</div>}>
         <Projects projects={projectsData} />
       </Suspense>

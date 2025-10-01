@@ -22,12 +22,12 @@ export default function Header() {
             alt="Logo"
             width={26}
             height={26}
-            className=""
+            className="size-[26px]"
           />
           <img
             src="/icons/brandname-dark.svg"
             alt="Brand Name-kash labs."
-            className="hidden dark:block"
+            className="w-full hidden dark:block"
           />
           <div className="">
             <img

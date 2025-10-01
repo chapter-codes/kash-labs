@@ -4,6 +4,7 @@ import Link from "next/link";
 import Nav from "@/components/home/client/Nav";
 import { link } from "fs";
 import { icons } from "lucide-react";
+import FooterNav from "../client/FooterNav";
 
 const contact = [
   {
@@ -41,7 +42,7 @@ export default function Footer() {
   return (
     <footer className="bg-footer-bg pt-28 pb-10 dark">
       <CustomDiv style="my-0! ">
-        <div className="flex flex-col md:flex-row  md:justify-between items-center">
+        <div className="flex flex-col md:flex-row md:justify-between items-center gap-8">
           <div id="brand" className="flex items-center gap-1">
             <Image
               src="/icons/logo.svg"
@@ -56,7 +57,7 @@ export default function Footer() {
               className="hidden dark:block"
             />
           </div>
-          <Nav placement="footer" ariaLabel="Footer navigation." />
+          <FooterNav  />
         </div>
         <div className="flex justify-center w-full mt-13 mb-16">
           {contact.map((item, index) => (

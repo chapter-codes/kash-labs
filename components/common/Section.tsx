@@ -5,7 +5,6 @@ type SectionProps = {
     style?: string
 }
 
-
 export default function Section({title, description, style}:SectionProps) {
   return (
     <div className={` my-10 ${style}`}>

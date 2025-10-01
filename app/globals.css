@@ -19,6 +19,7 @@
   --tag-foreground:#005EFF;
   --tag-border-bg:#005EFF10;
   --footer-bg:#181818;
+  --portfolio-btn-bg:#fff;
 
  
 
@@ -55,6 +56,7 @@
   --sidebar-ring:oklch(0.708 0 0);
 
   /* user definesd */
+  font-size:14px;
   --header-height: 70px;
   --view-project-bg:#1e1e1e40;
 }
@@ -74,6 +76,8 @@
   --tag-bg:#82B0FF10;
   --tag-foreground:#005EFF;
   --tag-border-bg:#82B0FF10;
+  --portfolio-btn-bg:#181818;
+
 
 
 
@@ -163,6 +167,7 @@
   --color-view-project-bg: var(--view-project-bg );
   --color-bg-3: var(--bg-3 );
   --color-footer-bg: var(--footer-bg );
+  --color-portfolio-btn-bg: var(--portfolio-btn-bg );
 
 
   /* fonts */
@@ -178,15 +183,14 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
-  /* :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  } */
+@media (min-width: 768px) {
+  :root{
+    font-size:16px
+  }
 }
 
 body {
-  /* @apply font-poppins */
+  @me
 }
 
 @layer base {

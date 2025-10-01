@@ -48,11 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="m-0 p-0">
+    <html lang="en" className=" m-0 p-0">
       <title>KashLabs | Home</title>
       <link rel="icon" href="/icons/logo.svg" />
       <body
-        className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins`}
+        className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins relative`}
       >
         <Header />
         {children}

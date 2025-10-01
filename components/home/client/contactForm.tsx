@@ -71,7 +71,7 @@ export default function contactForm({
           {state.error?.message ? state.error?.message + "*" : null}
         </p>
       </label>
-      <Button type="submit" className="self-end">
+      <Button type="submit" className="w-full md:max-w-fit md:self-end">
         {pending ? <LoaderCircle className="animate-spin w-8" /> : "submit"}
       </Button>
     </form>

@@ -1,4 +1,5 @@
 // library imports
+import * as motion from "motion/react-client";
 import { Button } from "../../ui/button";
 import Image from "next/image"
 
@@ -46,11 +47,10 @@ const designServices = [
 ];
 
 
-// components/DesignServices.js
 
 const DesignServices = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-x md:divide-y-0 border-card-border-stroke bg-card-bg p-8 rounded-xl">
+    <div className=" grid grid-cols-1 lg:grid-cols-3 gap-6 divide-y lg:divide-x lg:divide-y-0 border-card-border-stroke bg-card-bg p-8 rounded-xl">
       {designServices.map((section, index) => (
         <div key={index} className="  py-4 px-5">
           <div className="flex items-center gap-2 mb-5">
@@ -91,16 +91,28 @@ const DesignServices = () => {
 export default function MySkills() {
   return (
     <CustomDiv>
-      <div className="flex flex-col md:flex-row justify-between items-center w-full">
-        <Section
-          title="My skills"
-          description="Comprehensive design solutions for your business needs"
-        />
-        <Button variant="outline" className="">
-          Download CV
-        </Button>
-      </div>
-      <DesignServices />
+      <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 }}
+      viewport={{ once: true }} 
+      // className="flex flex-col  max-w-7xl mx-auto gap-10"
+      >
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center w-full mb-10 sm:mb-0 ">
+          <Section
+            title="My skills"
+            description="Comprehensive design solutions for your business needs"
+            style="sm:max-w-[70%]"
+          />
+          <Button
+            variant="outline"
+            className="self-center w-full sm:w-auto max-w-sm"
+          >
+            Download CV
+          </Button>
+        </div>
+        <DesignServices />
+      </motion.div>
     </CustomDiv>
   );
 }
