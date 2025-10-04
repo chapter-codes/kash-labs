@@ -50,11 +50,12 @@ export default function Hero() {
         transition={{ duration: 2 }}
         className="relative overflow-hidden flex items-end justify-center lg:basis-1/2 w-full lg:max-w-[548px]  h-[304px] xl:h-full  max-h-[304px] sm:max-h-[500px] lg:max-h-[533px] origin-bottom-right bg-hero-background rounded-2xl pt-10 xl:pt-0"
       >
+        <Image src={'/images/hero.webp'} className="hidden" width={500} height={500} alt="hidden preloaded hero image."/>
         <motion.img
           initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8 }}
           animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
           transition={{ duration: 2 }}
-          src="/images/hero.png"
+          src="/images/hero.webp"
           alt="Hero Image"
           className="translate-y-2 h-full lg:h-auto w-auto lg:w-full   rounded-lg object-cover object-top "
         />
