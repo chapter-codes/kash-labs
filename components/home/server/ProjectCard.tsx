@@ -57,7 +57,7 @@ export default function ProjectCard({projects}: {projects:Project[]}) {
             >
               <Link
                 href={project.link}
-                className=" text-white"
+                className=""
                 aria-label={`View project: ${project.title} on Behance`}
                 target="_blank"
               >
