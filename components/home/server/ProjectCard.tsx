@@ -1,9 +1,9 @@
-import type { Project } from "@/components/home/types";
+import type { TProject } from "@/components/home/types";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default function ProjectCard({projects}: {projects:Project[]}) {
+export default function ProjectCard({projects}: {projects:TProject[]}) {
 
   return (
     <>

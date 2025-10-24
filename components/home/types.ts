@@ -1,4 +1,5 @@
-export type Project = {
+
+export type TProject = {
   logo: string;
   title: string;
   category: string;

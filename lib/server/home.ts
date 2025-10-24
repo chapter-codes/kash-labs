@@ -19,7 +19,7 @@ export const projectsData = [
   },
   {
     logo: "/images/rare-breed.png",
-    title: "Rare Breed",
+    title: "Rare Breed 1",
     category: "Web Design",
     description:
       "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
