@@ -2,6 +2,7 @@
 import mongoose from "mongoose";
 import Project from "@/lib/models/Project";
 import { TProject } from "@/components/home/types";
+import { cache } from "react";
 // import Error from "next/error";
 
 const db: string = process.env?.DB_URI || "";
@@ -16,11 +17,15 @@ const newProjectData = {
 };
 
 // addProject(newProjectData)
-export async function getProjects(start = 0, limit = 20) {
+export const getProjects = cache(async (start = 0, limit = 20):Promise<TProject[] | [] | undefined> =>{
+  function sleep(ms:number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   try {
     await mongoose.connect(db);
-    const foundProjects = await Project.find().limit(limit)
-    return foundProjects.map(
+      // await sleep(5000); // simulate delay
+      const foundProjects = await Project.find().limit(limit)
+       return foundProjects.map(
       ({ logo, title, category, description, link }) => ({
         logo,
         title,
@@ -29,6 +34,7 @@ export async function getProjects(start = 0, limit = 20) {
         link,
       })
     );
+   
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.log("error", error.message);
@@ -38,9 +44,10 @@ export async function getProjects(start = 0, limit = 20) {
   } finally {
     await mongoose.disconnect();
   }
-}
+})
 
-export async function findProjects({ title }: { title: string }) {
+export const findProjects = cache(async({ title }: { title: string }): Promise<TProject[] | [] | undefined> => {
+ 
   try {
     await mongoose.connect(db);
     const foundProject = await Project.find({ title: new RegExp(title, "i") });
@@ -62,7 +69,7 @@ export async function findProjects({ title }: { title: string }) {
   } finally {
     await mongoose.disconnect();
   }
-}
+})
 
 export async function addProject(projectData: any) {
   // sanitize data first
@@ -142,40 +149,40 @@ export async function deleteProject(title: string) {
 // updateProject({ title: "edited 10", newTitle: 'edited 10', age: 10});
 // deleteProject("edited 10");
 
-const projects = [
-  {
-    logo: "/images/rare-breed.png",
-    title: "Rare Breed",
-    category: "Web Design",
-    description:
-      "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
-    link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
-  },
-  {
-    logo: "/images/igbo-club.png",
-    title: "Igbo Ambassadors Club UX",
-    category: "Web Design",
-    description:
-      "A global network uniting and empowering leaders among the Igbo diaspora, promoting Igbo culture, fostering pride, professionalism, community, and global engagement.",
-    link: "https://www.behance.net/gallery/218383579/IGBO-AMBASSADORS-LOGO",
-  },
-  {
-    logo: "/images/rare-breed.png",
-    title: "Rare Breed",
-    category: "Web Design",
-    description:
-      "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
-    link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
-  },
-  {
-    logo: "/images/dearly-beloved.png",
-    title: "Dearly Beloved",
-    category: "Web Design",
-    description:
-      "A youth-operated benefit spreading God’s love, nurturing purpose, and raising a generation of love in local cities and rural towns.",
-    link: "https://www.behance.net/gallery/218402817/DEARLY-BELOVED-LOGO",
-  },
-];
+// const projects = [
+//   {
+//     logo: "/images/rare-breed.png",
+//     title: "Rare Breed",
+//     category: "Web Design",
+//     description:
+//       "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
+//     link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
+//   },
+//   {
+//     logo: "/images/igbo-club.png",
+//     title: "Igbo Ambassadors Club UX",
+//     category: "Web Design",
+//     description:
+//       "A global network uniting and empowering leaders among the Igbo diaspora, promoting Igbo culture, fostering pride, professionalism, community, and global engagement.",
+//     link: "https://www.behance.net/gallery/218383579/IGBO-AMBASSADORS-LOGO",
+//   },
+//   {
+//     logo: "/images/rare-breed.png",
+//     title: "Rare Breed",
+//     category: "Web Design",
+//     description:
+//       "A youth fellowship empowering next-generation leaders through research, training and community to impact ministry, campuses, and the nation.",
+//     link: "https://www.behance.net/gallery/218404309/RARE-BREED-LOGO",
+//   },
+//   {
+//     logo: "/images/dearly-beloved.png",
+//     title: "Dearly Beloved",
+//     category: "Web Design",
+//     description:
+//       "A youth-operated benefit spreading God’s love, nurturing purpose, and raising a generation of love in local cities and rural towns.",
+//     link: "https://www.behance.net/gallery/218402817/DEARLY-BELOVED-LOGO",
+//   },
+// ];
 
 export async function addMany(projectArr: any) {
   try {

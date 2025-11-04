@@ -39,9 +39,14 @@ export default function ProjectCard({projects}: {projects:TProject[]}) {
             </div>
           </div>
 
-          <div className="text-center text-xs text-tag-foreground font-medium bg-tag-bg px-5 mt-4 py-2 max-w-fit border border-tag-border-bg rounded-full ">
-            {project.category}
+          <div className="flex gap-1 flex-wrap">
+            {project.category.map((cat, idx) => (
+              <div key={cat+idx} className="text-center text-xs text-tag-foreground font-medium bg-tag-bg px-5 mt-4 py-2 max-w-fit border border-tag-border-bg rounded-full ">
+                {cat}
+              </div>
+            ))}
           </div>
+
           <h3 className="text-foreground text-base font-semibold  my-4 pr-4">
             {project.title}
           </h3>

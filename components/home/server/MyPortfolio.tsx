@@ -1,27 +1,19 @@
-import {Suspense} from 'react'
+import { Suspense } from "react";
 import CustomDiv from "../../common/CustomDiv";
 import Projects from "../client/Projects";
 import { projectsData } from "@/lib/server/home";
-import {addMany , getProjects} from '@/lib/controllers/ProjectController'
-import { TProject } from '../types';
-
+import MyPortfolioHeader from "../client/MyPortfolioHeader";
+import LoadProjects from "./LoadProjects";
+import Fallback from "@/components/common/Fallback";
 
 export default async function MyPortfolio() {
-  
-  const projects: TProject[] | undefined = await getProjects() 
-
-  // const projects: Project[] = []
-  console.log(projects)
-  console.log('fetche projects')
-  // const projectsData = projects.slice(0, 20)
-
+  console.log("myportfolio");
   return (
-    <CustomDiv style=''>
-      <Suspense fallback={<div>Loading projects...</div>}>
-        <Projects projects={projects} />
+    <CustomDiv style="">
+      {/* <MyPortfolioHeader setCategory={setCategory} /> */}
+      <Suspense fallback={<Fallback />}>
+        <LoadProjects />
       </Suspense>
-
-      
     </CustomDiv>
   );
 }

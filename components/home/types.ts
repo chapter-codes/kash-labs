@@ -2,7 +2,7 @@
 export type TProject = {
   logo: string;
   title: string;
-  category: string;
+  category: string[];
   description: string;
   link: string;
 };

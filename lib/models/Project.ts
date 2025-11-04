@@ -37,6 +37,6 @@ ProjectSchema.pre("save", function (next) {
 });
 
 
-export default mongoose.models.Project || mongoose.model('Project', ProjectSchema);
+export default mongoose.models?.Project || mongoose.model('Project', ProjectSchema);
 
 

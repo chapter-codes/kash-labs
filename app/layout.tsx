@@ -42,21 +42,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const setInitialTheme = `
-    (function() {
-      const storedTheme = localStorage.getItem('theme');
-      // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = storedTheme || ''
-      document.documentElement.classList.add(theme);
-    })()
-  `;
-
+  // const setInitialTheme = `
+  //   (function() {
+  //     const storedTheme = localStorage.getItem('theme');
+  //     // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  //     const theme = storedTheme || ''
+  //     document.documentElement.classList.add(theme);
+  //   })()
+  // `;
+  // dangerouslySetInnerHTML={{ __html: setInitialTheme }}
   return (
     <html lang="en" className=" m-0 p-0">
       <head>
         <title>KashLabs | Home</title>
         <link rel="icon" href="/icons/logo.svg" />
-        <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+        <script />
       </head>
       <body
         className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins `}
