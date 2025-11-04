@@ -36,6 +36,9 @@ const ClashDisplay = localFont({
   ],
 });
 
+export const metadata: Metadata = {
+  title: "KashLabs | Home",
+};
 
 export default function RootLayout({
   children,
@@ -54,7 +57,6 @@ export default function RootLayout({
   return (
     <html lang="en" className=" m-0 p-0">
       <head>
-        <title>KashLabs | Home</title>
         <link rel="icon" href="/icons/logo.svg" />
       </head>
       <body
