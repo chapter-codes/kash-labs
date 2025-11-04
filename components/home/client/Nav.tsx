@@ -71,6 +71,7 @@ export default function Nav({
               pathname === "/dashboard" ? "active" : ""
             }`}
             href="/portfolio"
+            prefetch={true}
           >
             <Image
               src="/icons/active.svg"

@@ -9,8 +9,8 @@ import { Suspense } from "react";
 export default function Portfolio() {
   return (
     <>
-      {/* <Hero /> */}
-      {/* <MySkills /> */}
+      <Hero />
+      <MySkills />
       <MyPortfolio />
       <MyDesignPrinciples />
       <Testimonial />
