@@ -56,7 +56,6 @@ export default function RootLayout({
       <head>
         <title>KashLabs | Home</title>
         <link rel="icon" href="/icons/logo.svg" />
-        <script />
       </head>
       <body
         className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins `}
