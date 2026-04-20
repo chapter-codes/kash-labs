@@ -1,17 +1,19 @@
 import { TProject } from "../types";
 import { getProjects, findProjects } from "@/lib/controllers/ProjectController";
-import Projects from "../client/Projects";
 import ProjectsSections from "../client/ProjectsSections";
+import { SearchParams } from "@/types/homeTypes";
+import axios from "axios";
 
-async function LoadProjects({
-  searchParams,
-}: {
-  searchParams?: { search: string };
-}) {
-  console.log("searchParams", searchParams);
+async function LoadProjects({ searchParams }: { searchParams?: SearchParams }) {
+  // const params = await searchParams()
+  const params = new URLSearchParams(searchParams);
+  // const url = new URL("/api/projects"+ '?' + params.toString());
+  console.log("url", "/api/projects" + "?" + params.toString());
+  console.log('proc', process.env.NEXT_PUBLIC_API_URL);
+  const api = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`)
+  console.log('api', api);
 
-
-  if (searchParams?.search) {
+  if (searchParams?.search?.length) {
     const projects: TProject[] | undefined = await findProjects({
       title: searchParams.search,
     });

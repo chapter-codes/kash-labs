@@ -87,7 +87,7 @@ export default function Nav({
         </li>
         {placement !== "footer" && (
           <>
-            <li>
+            <li className="hidden">
               <div className="flex gap-2" onClick={handleTheme}>
                 <img
                   src="/icons/light-icon.svg"

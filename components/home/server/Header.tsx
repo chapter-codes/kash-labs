@@ -2,7 +2,7 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
 
-'custom components'
+// 'custom components'
 import Nav from "../client/Nav";
 import CustomDiv from "@/components/common/CustomDiv";
 

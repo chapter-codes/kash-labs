@@ -37,9 +37,9 @@ export const getProjects = cache(async (start = 0, limit = 20):Promise<TProject[
    
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.log("error", error.message);
+      console.error("error", error.message);
     } else {
-      console.log("Unexpected error:", error);
+      console.error("Unexpected error:", error);
     }
   } finally {
     await mongoose.disconnect();

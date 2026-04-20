@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Open_Sans, Mulish } from "next/font/google";
 import localFont from "next/font/local";
+import {AnimatePresence} from 'motion/react'
 
 //
 import "./globals.css";
@@ -45,28 +46,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const setInitialTheme = `
-  //   (function() {
-  //     const storedTheme = localStorage.getItem('theme');
-  //     // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  //     const theme = storedTheme || ''
-  //     document.documentElement.classList.add(theme);
-  //   })()
-  // `;
-  // dangerouslySetInnerHTML={{ __html: setInitialTheme }}
+ 
   return (
     <html lang="en" className=" m-0 p-0">
       <head>
         <link rel="icon" href="/icons/logo.svg" />
       </head>
       <body
-        className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins `}
+        className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins dark`}
       >
         {/* <LoadTheme /> */}
         <Header />
-        {children}
+        <AnimatePresence>{children}</AnimatePresence>
         <Footer />
       </body>
     </html>
   );
 }
+
+
+

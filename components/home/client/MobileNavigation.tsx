@@ -80,8 +80,8 @@ export default function MobileNavigation({showMenu, handleMobileMenu, handleThem
             Portfolio
           </Link>
         </li>
-        <li>
-          <div className="flex gap-2" onClick={handleTheme}>
+        <li className="hidden">
+          <div className=" flex gap-2" onClick={handleTheme}>
             <Image
               src="/icons/light-icon.svg"
               alt="light mode toggle"
