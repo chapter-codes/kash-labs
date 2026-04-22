@@ -20,7 +20,7 @@ export default async function Portfolio({
       <Hero />
       <MySkills />
 
-      <ProjectCardSkeleton />
+      {/* <ProjectCardSkeleton /> */}
       <Suspense fallback={<ProjectCardSkeleton />}>
         {/* <AnimateSection keyProp={"true"}> */}
         <MyPortfolio searchParams={params} />
