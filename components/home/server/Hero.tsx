@@ -1,14 +1,13 @@
-import * as motion from "motion/react-client"
+import * as motion from "motion/react-client";
 import { Button } from "../../ui/button";
 import CustomDiv from "../../common/CustomDiv";
 import Link from "next/link";
 import Image from "next/image";
+import { KashImage } from "@/app/assets";
 
-
-
-export default function Hero() {
+export default async function Hero() {
   return (
-    <CustomDiv style="relative flex flex-col lg:flex-row lg:justify-between lg:items-center gap-10 lg:h-[calc(100svh-var(--header-height))] max-h-[627px]  overflow-hidden my-0! pt-10 lg:pt-0">
+    <CustomDiv style="relative flex flex-col lg:flex-row lg:justify-between lg:items-center gap-10 lg:h-[calc(100svh-var(--header-height))] lg:max-h-[50rem]  overflow-hidden my-0! pt-10 lg:pt-0">
       {/* <div className="hero-bg-light" style={{ top: "0", left: "0" }} />
       <div
         className="hero-bg-light"
@@ -21,14 +20,14 @@ export default function Hero() {
         className="relative"
       >
         {/* Your hero image */}
-        <h1 className="text-foreground text-3xl lg:text-5xl font-semibold leading-10 md:leading-16 lg:max-w-[508px] mb-6">
+        <h1 className="text-foreground text-3xl lg:text-[2.5rem] text-center lg:text-left font-semibold leading-14 md:leading-16 lg:max-w-[508px] mb-6">
           Designing Impactful Digital Experiences
         </h1>
-        <p className="text-xl leading-8 text-secondary-foreground max-w-[372px] lg:max-w-[408px] mb-6">
+        <p className="text-xl leading-8 text-secondary-foreground text-center lg:text-left max-w-[372px] lg:max-w-[408px] mb-6 mx-auto lg:mx-0">
           Kashlabs delivers top-tier UI/UX, web design, graphics, and branding
           to elevate your business.
         </p>
-        <div className="flex gap-4 items-center justify-between w-full max-w-[345px]">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between w-full max-w-[345px] mx-auto lg:mx-0">
           <Button className="" asChild>
             <Link
               href="https://api.whatsapp.com/send/?phone=2348093757442&text&type=phone_number&app_absent=0"
@@ -38,8 +37,8 @@ export default function Hero() {
               Let’s work together
             </Link>
           </Button>
-          <Button variant="outline" className="grow">
-            View Porfolio
+          <Button variant="outline" className="grow" asChild>
+            <Link href={"/portfolio"}>View Porfolio</Link>
           </Button>
         </div>
       </motion.div>
@@ -48,16 +47,23 @@ export default function Hero() {
         initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8 }}
         animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
         transition={{ duration: 2 }}
-        className="relative overflow-hidden flex items-end justify-center lg:basis-1/2 w-full lg:max-w-[548px]  h-[304px] xl:h-full  max-h-[304px] sm:max-h-[500px] lg:max-h-[533px] origin-bottom-right bg-hero-background rounded-2xl pt-10 xl:pt-0"
+        className="shrink-0 relative overflow-hidden flex items-end justify-center w-[calc(0.6*34.25rem)] h-[calc(0.6*33.3125rem)] sm:w-[calc(0.9*34.25rem)] sm:h-[calc(0.9*33.3125rem)]  lg:w-[34.25rem] lg:h-[33.3125rem]   origin-bottom-right bg-hero-background rounded-2xl pt-10 xl:pt-0 mx-auto  lg:mx-0"
       >
-        <Image src={'/images/hero.webp'} className="hidden" width={500} height={500} alt="hidden preloaded hero image."/>
+        <Image
+          src={KashImage}
+          className="hidden"
+          width={500}
+          height={500}
+          alt="hidden preloaded hero image."
+          priority
+        />
         <motion.img
           initial={{ opacity: 0, scaleX: 0.8, scaleY: 0.8 }}
           animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
           transition={{ duration: 2 }}
-          src="/images/hero.webp"
+          src={KashImage.src}
           alt="Hero Image"
-          className="translate-y-2 h-full lg:h-auto w-auto lg:w-full   rounded-lg object-cover object-top "
+          className="h-full w-full object-bottom object-cover"
         />
         <motion.div
           initial={{ opacity: 0, bottom: "-20%" }}

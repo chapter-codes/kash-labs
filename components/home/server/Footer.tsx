@@ -43,21 +43,14 @@ export default function Footer() {
     <footer className="bg-footer-bg pt-28 pb-10 dark">
       <CustomDiv style="my-0! ">
         <div className="flex flex-col md:flex-row md:justify-between items-center gap-8">
-          <div id="brand" className="flex items-center gap-1">
-            <Image
-              src="/icons/logo.svg"
-              alt="Logo"
-              width={26}
-              height={26}
-              className=""
-            />
-            <img
-              src="/icons/brandname-dark.svg"
-              alt="Brand Name-kash labs."
-              className="hidden dark:block"
-            />
-          </div>
-          <FooterNav  />
+          <Image
+            src="/icons/brandname-dark.svg"
+            alt="Logo"
+            height={26}
+            width={120}
+            className="w-[7.5rem] h-6.5"
+          />
+          <FooterNav />
         </div>
         <div className="flex justify-center w-full mt-13 mb-16">
           {contact.map((item, index) => (

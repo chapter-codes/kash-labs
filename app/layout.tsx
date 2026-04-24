@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins, Open_Sans, Mulish } from "next/font/google";
 import localFont from "next/font/local";
-import {AnimatePresence} from 'motion/react'
 
-//
+
 import "./globals.css";
-import Header from "@/components/home/server/Header";
-import Footer from "@/components/home/server/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -41,6 +38,8 @@ export const metadata: Metadata = {
   title: "KashLabs | Home",
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,10 +54,8 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins dark`}
       >
-        {/* <LoadTheme /> */}
-        <Header />
-        <AnimatePresence>{children}</AnimatePresence>
-        <Footer />
+        {children}
+      
       </body>
     </html>
   );

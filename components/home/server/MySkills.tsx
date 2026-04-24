@@ -1,11 +1,11 @@
 // library imports
 import * as motion from "motion/react-client";
 import { Button } from "../../ui/button";
-import Image from "next/image"
-
+import Image from "next/image";
 
 import CustomDiv from "../../common/CustomDiv";
 import Section from "../../common/Section";
+import { Dot } from "lucide-react";
 
 const designServices = [
   {
@@ -46,7 +46,11 @@ const designServices = [
   },
 ];
 
-
+const groupTextColors = [
+  "text-ui-group-color",
+  "text-graphics-group-color",
+  "text-logo-group-color",
+];
 
 const DesignServices = () => {
   return (
@@ -56,10 +60,10 @@ const DesignServices = () => {
           <div className="flex items-center gap-2 mb-5">
             <Image
               src={section.image}
-              alt="Logo"
+              alt={section.title + " section"}
               width={30}
               height={30}
-              className=""
+              className=" "
             />
             <h2 className="text-base font-semibold text-foreground ">
               {section.title}
@@ -71,13 +75,7 @@ const DesignServices = () => {
           <ul className="text-secondary-foreground space-y-1">
             {section.services.map((service, i) => (
               <div className="flex gap-3" key={service}>
-                <Image
-                  src="/icons/active.svg"
-                  alt="Logo"
-                  width={10}
-                  height={10}
-                  className=""
-                />
+                <Dot className={`${groupTextColors[index]} scale-250`} />
                 <li key={i}>{service}</li>
               </div>
             ))}
@@ -92,28 +90,21 @@ export default function MySkills() {
   return (
     <CustomDiv>
       <motion.div
-      initial={{ opacity: 0, y: 200 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5 }}
-      viewport={{ once: true }} 
-      // className="flex flex-col  max-w-7xl mx-auto gap-10"
+        initial={{ opacity: 0, y: 200 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+        className="mt-20"
       >
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center w-full mb-10 sm:mb-0 ">
-          <Section
-            title="My skills"
-            description="Comprehensive design solutions for your business needs"
-            style="sm:max-w-[70%]"
-          />
-          <Button
-            variant="outline"
-            className="self-center w-full sm:w-auto max-w-sm"
-          >
-            Download CV
-          </Button>
-        </div>
+        <Section
+          title="My skills"
+          description="Comprehensive design solutions for your business needs"
+          style="sm:max-w-[70%] mx-auto"
+          className="flex flex-col items-center mb-6"
+        />
+
         <DesignServices />
       </motion.div>
     </CustomDiv>
   );
 }
-

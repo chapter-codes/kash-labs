@@ -1,0 +1,1 @@
+export {default as KashImage} from './kash-cropped.png'

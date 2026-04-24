@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {usePathname} from 'next/navigation'
 import Link from "next/link";
 import {Button} from '@/components/ui/button'
+import { X } from 'lucide-react';
 
 type MobileNavigationProps = {
   showMenu: boolean;
@@ -29,13 +30,7 @@ export default function MobileNavigation({showMenu, handleMobileMenu, handleThem
         type="button"
         aria-label="close mobile navigation menu"
       >
-        <Image
-          src="/icons/cancel.png"
-          alt="close mobile navigation modal."
-          width={24}
-          height={24}
-          className="size-6 h-auto"
-        />
+        <X className='size-6'/>
       </button>
       <ul className="flex flex-col md:flex-row items-center gap-5">
         {/* <ul className="hidden  md:flex items-center gap-5"> */}
@@ -101,34 +96,41 @@ export default function MobileNavigation({showMenu, handleMobileMenu, handleThem
           </div>
         </li>
         <li>
+          <Link
+            className={`flex items-center gap-0.5 link dark:text-white ${
+              pathname === "/dashboard" ? "active" : ""
+            }`}
+            href="#contact"
+            prefetch={true}
+            onClick={handleMobileMenu}
+          >
+            <Image
+              src="/icons/active.svg"
+              alt="Logo"
+              width={10}
+              height={10}
+              className={` ${
+                pathname === "/#contact" ? "visible" : "invisible"
+              } transition-[visibility] duration-75`}
+            />
+            Contact
+          </Link>
+        </li>
+        <li>
           <Button asChild>
-            <Link href={"/#contact"} className=" ">
-              Contact
+            <Link href={"/#"} className=" ">
+              My CV
             </Link>
           </Button>
         </li>
       </ul>
-      <div id="brand" className="md:hidden flex items-center gap-1">
-        <Image
-          src="/icons/logo.svg"
-          alt="Logo"
-          width={26}
-          height={26}
-          className="size-[26px]"
-        />
-        <img
-          src="/icons/brandname-dark.svg"
-          alt="Brand Name-kash labs."
-          className="w-full hidden dark:block"
-        />
-        <div className="">
-          <img
-            src="/icons/brandname-light.svg"
-            alt="Brand Name-kash labs."
-            className="dark:hidden"
-          />
-        </div>
-      </div>
+      <Image
+        src="/icons/brandname-dark.svg"
+        alt="Logo"
+        height={26}
+        width={120}
+        className="w-[7.5rem] h-6.5"
+      />
     </ul>
   );
 }

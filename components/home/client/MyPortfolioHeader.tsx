@@ -3,7 +3,7 @@ import Section from "@/components/common/Section";
 import { Button } from "@/components/ui/button";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Search from "@/components/portfolio/client/Search";
+// import Search from "@/components/portfolio/client/Search";
 import { TProject } from "../types";
 import Link from "next/link";
 
@@ -59,7 +59,7 @@ function MyPortfolioHeader({
       )}
       {isClient && pathname == "/portfolio" && (
         <div className="">
-          <Search setSubmitting={setSubmitting} />
+          {/* <Search setSubmitting={setSubmitting} /> */}
         </div>
       )}
       <div className="flex flex-wrap lg:flex-nowrap justify-center  gap-1 gap-y-2 text-xs mb-6 lg:mb-0">

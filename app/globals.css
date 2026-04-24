@@ -20,6 +20,10 @@
   --tag-border-bg: #005eff10;
   --footer-bg: #181818;
   --portfolio-btn-bg: #fff;
+  --ui-group-color: #6dd47e;
+  --graphics-group-color: #ffb84d;
+  --logo-group-color: #ff6666;
+
 
   /*  */
   --card: oklch(1 0 0);
@@ -73,8 +77,10 @@
   --tag-foreground: #005eff;
   --tag-border-bg: #82b0ff10;
   --portfolio-btn-bg: #181818;
+ 
 
   /*  */
+
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -161,6 +167,9 @@
   --color-bg-3: var(--bg-3);
   --color-footer-bg: var(--footer-bg);
   --color-portfolio-btn-bg: var(--portfolio-btn-bg);
+  --color-ui-group-color: var(--ui-group-color);
+  --color-graphics-group-color: var(--graphics-group-color);
+  --color-logo-group-color: var(--logo-group-color);
 
   /* fonts */
   --font-poppins: var(--font-poppins);
@@ -170,6 +179,12 @@
   --spacing-header-height: var(--header-height);
 }
 
+
+#slider {
+  background: radial-gradient(circle, #005eff 0%, #001740 100%);
+  animation: move-left-to-right 3s linear alternate-reverse infinite;
+}
+
 @media (min-width: 768px) {
   :root {
     font-size: 16px;
@@ -177,11 +192,11 @@
 }
 
 @layer utilities {
-  .custom-size {
-    @apply max-w-[1440px] mx-auto px-4 md:px-0 my-10;
-  }
+  
+  .custom-sizing {
+    @apply w-[95%] md:w-[90%] lg:w-4/5 max-w-[1440px] mx-auto px-4 md:px-0 my-10
+  } 
 }
-
 
 @layer base {
   * {
@@ -190,12 +205,14 @@
   body {
     @apply bg-background text-foreground;
   }
+  html{
+    @apply scroll-smooth
+  }
+  .custom-sizing {
+    
+  }
 }
 
-#slider {
-  background: radial-gradient(circle, #005eff 0%, #001740 100%);
-  animation: move-left-to-right 3s linear alternate-reverse infinite;
-}
 
 @keyframes move-left-to-right {
   0% {
@@ -234,4 +251,3 @@
   animation: move-light 6s linear infinite;
   z-index: 0;
 } */
-

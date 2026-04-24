@@ -6,7 +6,6 @@ import Image from "next/image";
 import Nav from "../client/Nav";
 import CustomDiv from "@/components/common/CustomDiv";
 
-
 export default function Header() {
   return (
     <motion.header
@@ -15,27 +14,15 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 1.5 }}
     >
-      <CustomDiv style="flex items-center justify-between max-w-[1140px] w-[95%] md:w-4/5 ">
+      <CustomDiv className="flex items-center justify-between max-w-[1440px] w-[95%] md:w-[90%]  mx-auto ">
         <div id="brand" className="flex items-center gap-1">
           <Image
-            src="/icons/logo.svg"
-            alt="Logo"
-            width={26}
-            height={26}
-            className="size-[26px]"
-          />
-          <img
             src="/icons/brandname-dark.svg"
-            alt="Brand Name-kash labs."
-            className="w-full hidden dark:block"
+            alt="Logo"
+            height={26}
+            width={120}
+            className="w-[7.5rem] h-6.5"
           />
-          <div className="">
-            <img
-              src="/icons/brandname-light.svg"
-              alt="Brand Name-kash labs."
-              className="dark:hidden"
-            />
-          </div>
         </div>
         <Nav />
       </CustomDiv>

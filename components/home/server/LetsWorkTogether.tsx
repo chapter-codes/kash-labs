@@ -5,11 +5,11 @@ import Image from 'next/image'
 import Link from "next/link";
 
 // action
-import { handleContactForm } from "../action";
+// import { handleContactForm } from "../action";
 
 export default async function LetsWorkTogether() {
   return (
-    <div className="bg-bg-3 py-[4.25rem] mt-19 mb-0">
+    <div id="contact" className="bg-bg-3 py-[4.25rem] mt-19 mb-0">
       <CustomDiv style="flex flex-col md:flex-row  md:gap-16">
         <div className="basis-1/2 ">
           <Section title="Let’s work together" description="" style="my-0!" />
@@ -39,7 +39,7 @@ export default async function LetsWorkTogether() {
             </Link>
           </div>
         </div>
-        <ContactForm action={handleContactForm} />
+        <ContactForm  />
       </CustomDiv>
     </div>
   );

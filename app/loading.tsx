@@ -1,10 +1,23 @@
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import Image from "next/image";
 
-function loading() {
+
+function Loading() {
   return (
-    <Skeleton className="grid md:grid-cols-2 gap-x-5 gap-y-10" height={400} />
-  )
+    <div className="h-svh w-full flex flex-col items-center justify-center">
+      <Image
+        src="/icons/brandname-dark.svg"
+        alt="Logo"
+        height={26}
+        width={120}
+        className="w-[7.5rem] h-6.5 "
+        priority
+      />
+      <div className="relative w-[7.5rem] h-1  bg-card-bg/80 mt-2 rounded-full">
+      <div id="slider" className="absolute h-1 w-1/5 bg-btn-bg rounded-full slider"></div>
+      </div>
+    </div>
+  );
+
 }
 
-export default loading
+export default Loading

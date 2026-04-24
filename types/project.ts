@@ -3,5 +3,5 @@ export interface Project {
     projectLink: string;
     image: Record<string, string>
     tags: string[]
-    description? : string
+    projectDescription? : string
 }

@@ -6,9 +6,9 @@ import { Suspense } from "react";
 import CustomDiv from "@/components/common/CustomDiv";
 import Section from "@/components/common/Section";
 import LetsWorkTogether from "@/components/home/server/LetsWorkTogether";
-import LoadProjects from "@/components/home/server/LoadProjects";
-import Fallback from "@/components/common/Fallback";
-import MyPortfolioHeader from "@/components/home/client/MyPortfolioHeader";
+// import LoadProjects from "@/components/home/server/LoadProjects";
+// import Fallback from "@/components/common/Fallback";
+// import MyPortfolioHeader from "@/components/home/client/MyPortfolioHeader";
 
 
 export const metadata: Metadata = {
@@ -28,9 +28,9 @@ export default async function Portfolio({searchParams}: {searchParams: Promise<{
           style="w-full flex flex-col items-start md:items-center"
         />
         {/* <MyPortfolioHeader  />  */}
-        <Suspense fallback={<Fallback />}>
+        {/* <Suspense fallback={<Fallback />}>
           <LoadProjects searchParams={resolvedSearchParams} />
-        </Suspense>
+        </Suspense> */}
       </CustomDiv>
       <LetsWorkTogether />
     </>

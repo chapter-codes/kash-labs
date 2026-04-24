@@ -27,7 +27,6 @@ export default function Nav({
   const handleMobileMenu = () => {
     document.body.classList.toggle("overflow-hidden");
     setShowMenu((prev) => !prev);
-    console.log(showMenu);
   };
 
   return (
@@ -43,7 +42,11 @@ export default function Nav({
         />
       </div>
 
-     <MobileNavigation handleMobileMenu={handleMobileMenu} showMenu={showMenu} handleTheme={handleTheme} />
+      <MobileNavigation
+        handleMobileMenu={handleMobileMenu}
+        showMenu={showMenu}
+        handleTheme={handleTheme}
+      />
       <ul className="hidden md:flex items-center gap-5">
         <li>
           <Link
@@ -85,6 +88,26 @@ export default function Nav({
             Portfolio
           </Link>
         </li>
+        <li>
+          <Link
+            className={`flex items-center gap-0.5 link dark:text-white ${
+              pathname === "#contact" ? "active" : ""
+            }`}
+            href="#contact"
+            prefetch={true}
+          >
+            <Image
+              src="/icons/active.svg"
+              alt="Logo"
+              width={10}
+              height={10}
+              className={` ${
+                pathname === "#contact" ? "visible" : "invisible"
+              } transition-[visibility] duration-75`}
+            />
+            Contact
+          </Link>
+        </li>
         {placement !== "footer" && (
           <>
             <li className="hidden">
@@ -105,8 +128,8 @@ export default function Nav({
             </li>
             <li>
               <Button asChild>
-                <Link href={"/#contact"} className=" ">
-                  Contact
+                <Link href={"/#"} className=" ">
+                  My CV
                 </Link>
               </Button>
             </li>
