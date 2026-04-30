@@ -5,21 +5,15 @@ import { Project } from "@/types/project";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-interface IMyPortfolioProps {
-}
+interface IMyPortfolioProps {}
 
 const PROJECTS_QUERY = `
   *[_type == 'project' && defined(projectName)]
   {projectName, tags, image, projectLink, projectDescription}
 `;
 
-export default async function MyPortfolio({  }: IMyPortfolioProps) {
+export default async function MyPortfolio({}: IMyPortfolioProps) {
   const projects: Project[] = await client.fetch(PROJECTS_QUERY);
-  console.log(
-    "projecs",
-    projects.forEach((pr, index) => console.log("tags", pr, index + 1)),
-  );
-
   const sortTags = ["logo", "flyer", "website"];
 
   const taggedProjects: Record<string, Project[]> = {
@@ -28,7 +22,7 @@ export default async function MyPortfolio({  }: IMyPortfolioProps) {
     website: [],
   };
 
-   projects.forEach((project) => {
+  projects.forEach((project) => {
     if (
       project.tags
         .map((tag) => tag.toLowerCase().split(" ")[0])
@@ -52,22 +46,23 @@ export default async function MyPortfolio({  }: IMyPortfolioProps) {
     }
   });
 
-
   return (
     <CustomDiv style="">
-      <section className={`grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10`}>
+      <section
+        className={`grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10`}
+      >
         {[
           taggedProjects.logo[0],
           taggedProjects.flyer[0],
           taggedProjects.website[0],
-          taggedProjects.logo[1] ,
+          taggedProjects.logo[1],
         ].map((project, index) => (
           <ProjectCard project={project} key={project.projectName + index} />
         ))}
       </section>
 
       <Button asChild className="mt-10 max-w-fit mx-auto">
-        <Link href={'/portfolio'}>View More Projects</Link>
+        <Link href={"/portfolio"}>View More Projects</Link>
       </Button>
     </CustomDiv>
   );

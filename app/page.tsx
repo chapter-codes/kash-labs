@@ -1,4 +1,3 @@
-import { AnimateSection } from "@/components/common/AnimateUI";
 import { CustomLayout } from "@/components/common/CustomLayout";
 import ProjectCardSkeleton from "@/components/common/ProjectCardSkeleton";
 import About from "@/components/home/server/About";
@@ -8,11 +7,8 @@ import MyDesignPrinciples from "@/components/home/server/MyDesignPrinciples";
 import MyPortfolio from "@/components/home/server/MyPortfolio";
 import MySkills from "@/components/home/server/MySkills";
 import Testimonial from "@/components/home/server/Testimonial";
-import { client } from "@/sanity/client";
 import { SearchParams } from "@/types/homeTypes";
-import { Project } from "@/types/project";
-import { Suspense } from "react";
-import Loading from "./loading";
+import SearchFilterSort from "@/components/home/client/SearchFilterSort";
 
 
 export default async function Portfolio({
@@ -24,16 +20,11 @@ export default async function Portfolio({
   return (
     <CustomLayout>
       <section>
-          <Hero />
+        <Hero />
         <About />
         <MySkills />
-
-        {/* <ProjectCardSkeleton /> */}
-        {/* <Suspense fallback={"<ProjectCardSkeleton />"}> */}
-          {/* <AnimateSection keyProp={"true"}> */}
-          <MyPortfolio />
-          {/* </AnimateSection> */}
-        {/* </Suspense> */}
+        <SearchFilterSort />
+        <MyPortfolio />
         <MyDesignPrinciples />
         <Testimonial />
         <LetsWorkTogether />
