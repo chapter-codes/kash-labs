@@ -50,9 +50,10 @@ export default function SearchFilterSort() {
             />
           </button>
         </form>
-        {/* filter */}
+        {/* Sort portfolio */}
         <SortSelect />
       </div>
+      {/* filter portfolio */}
       <FilterProjects />
     </section>
   );

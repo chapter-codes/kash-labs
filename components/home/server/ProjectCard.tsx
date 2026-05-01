@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             width={516}
             height={235}
             alt={"logo"}
-            className="w-full h-full object-cover mx-auto group-hover:scale-110 transition-transform duration-150  rounded-[10px]"
+            className={`${!project.projectLink? 'object-contain h-full w-auto' : 'object-cover w-full h-full group-hover:scale-110 '} object-cover mx-auto  transition-transform duration-150  rounded-[10px]`}
           />
           {project.projectLink && (
             <div className="absolute top-0 left-0 w-full h-full group-hover:bg-black/70 group-focus:bg-black/70 hidden lg:flex justify-center items-center">

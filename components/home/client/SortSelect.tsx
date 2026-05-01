@@ -31,14 +31,16 @@ export function SortSelect() {
       value={sort}
       onValueChange={(value: string) => {
         const searchParams = new URLSearchParams(queryParams.toString());
-        value == "all" ? null : searchParams.set("sort", value);
+        value == "all"
+          ? searchParams.delete("sort")
+          : searchParams.set("sort", value);
         console.log("qq", searchParams.toString(), !searchParams);
         const url = "/portfolio" + "?" + searchParams.toString();
         setSort(value);
         router.push(url);
       }}
     >
-      <SelectTrigger className="bg-card-bg w-[10.4375rem]" value={sort}>
+      <SelectTrigger className="bg-card-bg w-[10.4375rem] rounded-full" value={sort}>
         <SelectValue placeholder={"Sort projects"} />
       </SelectTrigger>
       <SelectContent className="mt-18">
