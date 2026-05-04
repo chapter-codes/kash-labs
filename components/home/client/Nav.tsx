@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import * as motion from "motion/react-client";
 import MobileNavigation from "./MobileNavigation";
+import { CV } from "../server/Cv";
 
 // const MobileNavigation = () => {};
 
@@ -19,9 +20,11 @@ export default function Nav({
   const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleTheme = ()=> {
-      document.documentElement.classList.toggle("dark");
-      localStorage.getItem('theme') == 'dark' ? localStorage.setItem('theme', '') : localStorage.setItem('theme', 'dark') 
+  const handleTheme = () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.getItem("theme") == "dark"
+      ? localStorage.setItem("theme", "")
+      : localStorage.setItem("theme", "dark");
   };
 
   const handleMobileMenu = () => {
@@ -127,11 +130,15 @@ export default function Nav({
               </div>
             </li>
             <li>
-              <Button asChild>
-                <Link href={"/#"} className=" ">
-                  My CV
-                </Link>
-              </Button>
+              <CV
+                trigger={
+                  <Button asChild>
+                    <Link href={"/#"} className=" ">
+                      My CV
+                    </Link>
+                  </Button>
+                }
+              />
             </li>
           </>
         )}
@@ -139,4 +146,3 @@ export default function Nav({
     </nav>
   );
 }
-

@@ -1,10 +1,11 @@
-'use client'
+"use client";
 
-import Image from 'next/image';
-import {usePathname} from 'next/navigation'
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
-import {Button} from '@/components/ui/button'
-import { X } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
+import CV from "../server/Cv";
 
 type MobileNavigationProps = {
   showMenu: boolean;
@@ -12,10 +13,12 @@ type MobileNavigationProps = {
   handleTheme: () => void;
 };
 
-
-export default function MobileNavigation({showMenu, handleMobileMenu, handleTheme}: MobileNavigationProps) {
-
-    const pathname = usePathname()
+export default function MobileNavigation({
+  showMenu,
+  handleMobileMenu,
+  handleTheme,
+}: MobileNavigationProps) {
+  const pathname = usePathname();
 
   return (
     <ul
@@ -30,7 +33,7 @@ export default function MobileNavigation({showMenu, handleMobileMenu, handleThem
         type="button"
         aria-label="close mobile navigation menu"
       >
-        <X className='size-6'/>
+        <X className="size-6" />
       </button>
       <ul className="flex flex-col md:flex-row items-center gap-5">
         {/* <ul className="hidden  md:flex items-center gap-5"> */}
@@ -117,11 +120,15 @@ export default function MobileNavigation({showMenu, handleMobileMenu, handleThem
           </Link>
         </li>
         <li>
-          <Button asChild>
-            <Link href={"/#"} className=" ">
-              My CV
-            </Link>
-          </Button>
+          <CV
+            trigger={
+              <Button asChild>
+                <Link href={"/#"} className=" ">
+                  My CV
+                </Link>
+              </Button>
+            }
+          />
         </li>
       </ul>
       <Image
