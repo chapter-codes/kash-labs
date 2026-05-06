@@ -1,11 +1,20 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import * as motion from "motion/react-client";
 
 export default function ProjectCardSkeleton() {
   return (
-    <div className="grid md:grid-cols-2 gap-x-5 gap-y-10 custom-size">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, staggerChildren: 0.1 }}
+      className="grid md:grid-cols-2 gap-x-5 gap-y-10 custom-size"
+    >
       {Array.from({ length: 4 }).map((_, index) => (
-        <article
+        <motion.article
           key={index}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: index * 0.1 }}
           className="flex flex-col p-5 pb-9 bg-card-bg rounded-[20px] border-[1.5px] border-card-bg w-full"
         >
           {/* Image Skeleton */}
@@ -32,8 +41,8 @@ export default function ProjectCardSkeleton() {
           <div className="mt-6">
             <Skeleton className="w-full h-12 rounded-full" />
           </div>
-        </article>
+        </motion.article>
       ))}
-    </div>
+    </motion.div>
   );
 }

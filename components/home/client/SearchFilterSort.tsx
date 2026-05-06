@@ -4,17 +4,18 @@ import * as motion from "motion/react-client";
 import Image from "next/image";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import {  useState } from "react";
+import { useState } from "react";
 import { SortSelect } from "./SortSelect";
 import FilterProjects from "./FilterProjects";
 
 export default function SearchFilterSort() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const url= '/' +  pathname + "?" + searchParams.toString();
-  const [showCancel, setShowCancel] =useState(false);
+  const paramsString = searchParams.toString();
+  const url = pathname + (paramsString ? `?${paramsString}` : "");
+  const [showCancel, setShowCancel] = useState(false);
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-4 custom-sizing">
+    <section className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-4 custom-sizing pt-15 ">
       <div className="flex gap-5.5">
         {/* search form */}
         <form

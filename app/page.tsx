@@ -30,5 +30,5 @@ export default async function Portfolio({
         <LetsWorkTogether />
       </section>
     </CustomLayout>
-  );
+  )
 }

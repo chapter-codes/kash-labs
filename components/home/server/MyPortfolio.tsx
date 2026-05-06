@@ -47,7 +47,7 @@ export default async function MyPortfolio({}: IMyPortfolioProps) {
   });
 
   return (
-    <CustomDiv style="">
+    <CustomDiv className="">
       <section
         className={`grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10`}
       >

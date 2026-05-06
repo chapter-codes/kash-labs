@@ -9,12 +9,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
-import {} from "next/router";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export function SortSelect() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const router = useRouter();
   const queryParams = useSearchParams();
   const searchParams = new URLSearchParams(queryParams);
@@ -40,7 +39,10 @@ export function SortSelect() {
         router.push(url);
       }}
     >
-      <SelectTrigger className="bg-card-bg w-[10.4375rem] rounded-full" value={sort}>
+      <SelectTrigger
+        className="bg-card-bg w-[10.4375rem] rounded-full"
+        value={sort}
+      >
         <SelectValue placeholder={"Sort projects"} />
       </SelectTrigger>
       <SelectContent className="mt-18">
