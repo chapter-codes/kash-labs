@@ -11,6 +11,8 @@ import { client } from "@/sanity/client";
 import ProjectCard from "@/components/home/server/ProjectCard";
 import Header from "@/components/home/server/Header";
 import Pagination from "@/components/portfolio/client/Pagination";
+import { AnimateSection } from "@/components/common/AnimateUI";
+import { AnimatePresence } from "motion/react";
 
 export const metadata: Metadata = {
   title: "kashLabs | Portfolio",
@@ -93,29 +95,25 @@ export default async function Portfolio({
 
   return (
     <>
-      <Header />
-      <CustomDiv>
-        <Section
-          title="My Portfolio"
-          description="Showcasing my best work across different industries"
-          style="w-full flex flex-col items-start md:items-center"
+      <Header animate={false} />
+      <Section
+        title="My Portfolio"
+        description="Showcasing my best work across different industries"
+        style="w-full flex flex-col items-start md:items-center"
+      />
+      <SearchFilterSort />
+      <section className="grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10 custom-sizing">
+        {projects.map((project, index) => (
+          <ProjectCard project={project} key={project.projectName + index} />
+        ))}
+      </section>
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          searchParams={resolvedSearchParams}
         />
-        <SearchFilterSort />
-        <section
-          className={`grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10`}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard project={project} key={project.projectName + index} />
-          ))}
-        </section>
-        {totalPages > 1 && (
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            searchParams={resolvedSearchParams}
-          />
-        )}
-      </CustomDiv>
+      )}
       <LetsWorkTogether />
     </>
   );

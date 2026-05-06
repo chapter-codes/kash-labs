@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 
 
 import "./globals.css";
+import { AnimateSection } from "@/components/common/AnimateUI";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -54,7 +55,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${ClashDisplay.variable} ${openSans.variable} ${mulish.variable} antialiased bg-background font-poppins dark`}
       >
+        {/* <AnimateSection> */}
+
         {children}
+        {/* </AnimateSection> */}
       
       </body>
     </html>
