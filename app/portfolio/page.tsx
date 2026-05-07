@@ -11,8 +11,8 @@ import { client } from "@/sanity/client";
 import ProjectCard from "@/components/home/server/ProjectCard";
 import Header from "@/components/home/server/Header";
 import Pagination from "@/components/portfolio/client/Pagination";
-import { AnimateSection } from "@/components/common/AnimateUI";
-import { AnimatePresence } from "motion/react";
+import * as motion from 'motion/react-client';
+
 
 export const metadata: Metadata = {
   title: "kashLabs | Portfolio",
@@ -96,12 +96,18 @@ export default async function Portfolio({
   return (
     <>
       <Header animate={false} />
+      
       <Section
         title="My Portfolio"
         description="Showcasing my best work across different industries"
         style="w-full flex flex-col items-start md:items-center"
       />
       <SearchFilterSort />
+      {search && (
+        <motion.div className="text-lg font-semibold text-gray-800 mb-4">
+          {projects.length} search results for "{search}"
+        </motion.div>
+      )}
       <section className="grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10 custom-sizing">
         {projects.map((project, index) => (
           <ProjectCard project={project} key={project.projectName + index} />

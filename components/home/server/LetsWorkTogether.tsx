@@ -1,7 +1,7 @@
 import CustomDiv from "@/components/common/CustomDiv";
 import Section from "@/components/common/Section";
 import ContactForm from "@/components/home/client/contactForm";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
 
 // action
@@ -31,15 +31,16 @@ export default async function LetsWorkTogether() {
               alt="whatsapp logo"
               className="w-6 h-auto "
             />
-            <Link
-              href="https%3A%2F%2Fwa.me%2F2348093757442"
+            <a
+              href="https://wa.me/2348093757442"
               className="text-sm text-secondary-foreground underline capitalize "
+              target="_blank"
             >
               whatsapp
-            </Link>
+            </a>
           </div>
         </div>
-        <ContactForm  />
+        <ContactForm />
       </CustomDiv>
     </div>
   );
