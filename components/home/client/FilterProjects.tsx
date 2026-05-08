@@ -23,14 +23,12 @@ const projectCategories = [
   },
 ];
 
-
-
 export default function FilterProjects() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
   return (
-    <div className="flex w-full md:w-auto  overflow-x-auto justify-center-safe pb-1 gap-1 text-xs mb-6 lg:mb-0">
+    <div className="flex w-full md:w-auto  overflow-x-auto justify-center-safe pb-4 gap-1 text-xs mb-6 lg:mb-0">
       {projectCategories.map((cat, index) => {
         const newSearchParams = new URLSearchParams(searchParams.toString());
         cat.key == "all"

@@ -158,8 +158,8 @@ export default async function Portfolio({
         </motion.div>
       )}
       <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.05 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="custom-sizing mb-10"
@@ -196,22 +196,14 @@ export default async function Portfolio({
           ))}
         </div>
       </motion.section>
-      {/* <motion.section
-        key={`${search || "all"}-${category || "all"}-${sort || "default"}-${currentPage}`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="grid md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-x-5 gap-y-10 custom-sizing"
-      >
-        {projects.map((project, index) => (
-          <ProjectCard project={project} key={project.projectName + index} />
-        ))}
-      </motion.section> */}
+      
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           searchParams={resolvedSearchParams}
+          projectCount={totalCount}
+          itemsPerPage={ITEMS_PER_PAGE}
         />
       )}
       <LetsWorkTogether />

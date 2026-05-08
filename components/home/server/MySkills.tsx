@@ -1,6 +1,5 @@
 // library imports
 import * as motion from "motion/react-client";
-import { Button } from "../../ui/button";
 import Image from "next/image";
 
 import CustomDiv from "../../common/CustomDiv";
@@ -101,6 +100,7 @@ export default function MySkills() {
           description="Comprehensive design solutions for your business needs"
           style="sm:max-w-[70%] mx-auto"
           className="flex flex-col items-center mb-6"
+          descriptionClassName="text-center "
         />
 
         <DesignServices />
