@@ -14,14 +14,14 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <>
-      <article className="flex flex-col group p-5 pb-9 bg-card-bg rounded-[20px] hover:bg-card-hover-bg transition-colors duration-150 border-[1.5px] border-card-bg hover:border-card-hover-border max-h-[43.75rem] w-full ">
-        <div className="relative  rounded-[10px] overflow-hidden">
+      <article className="flex flex-col group p-2 md:p-5 pb-9 bg-card-bg rounded-[10px] hover:bg-card-hover-bg transition-colors duration-150 border-[1.5px] border-card-bg hover:border-card-hover-border max-h-fit w-full self-start max-w-[34.75rem] mx-auto">
+        <div className="relative  rounded-[10px] overflow-hidden ">
           <Image
             src={url.width(1000).url()}
-            width={516}
-            height={235}
+            width={334}
+            height={303}
             alt={"logo"}
-            className={`${!project.projectLink? 'object-contain h-full w-auto' : 'object-cover w-full h-full group-hover:scale-110 '} object-cover mx-auto  transition-transform duration-150  rounded-[10px]`}
+            className={`${!project.projectLink ? "object-contain h-full w-auto" : "object-cover w-full h-full group-hover:scale-110 "} object-cover mx-auto  transition-transform duration-150  rounded-[10px]`}
           />
           {project.projectLink && (
             <div className="absolute top-0 left-0 w-full h-full group-hover:bg-black/70 group-focus:bg-black/70 hidden lg:flex justify-center items-center">

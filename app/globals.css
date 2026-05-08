@@ -190,8 +190,11 @@
 }
 
 @layer utilities {
+  .max-size{
+    @apply max-w-[90rem]
+  }
   .custom-sizing {
-    @apply w-[95%] md:w-[90%] lg:w-4/5 max-w-[1440px] mx-auto px-4 md:px-0 my-10;
+    @apply w-[95%] md:w-[90%] xl:w-4/5 max-w-[90rem] mx-auto px-4 md:px-0 my-10;
   }
 }
 

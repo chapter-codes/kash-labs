@@ -9,7 +9,7 @@ import MySkills from "@/components/home/server/MySkills";
 import Testimonial from "@/components/home/server/Testimonial";
 import { SearchParams } from "@/types/homeTypes";
 import SearchFilterSort from "@/components/home/client/SearchFilterSort";
-import '@/app/assets/css/home.css'
+import '@/app/assets/css/smooth-scroll.css'
 
 export default async function Portfolio({
   

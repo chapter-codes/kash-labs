@@ -47,6 +47,23 @@ export default async function MyPortfolio({}: IMyPortfolioProps) {
     }
   });
 
+  const selectedProjects: Project[] = [
+    taggedProjects.logo[0],
+    taggedProjects.flyer[0],
+    taggedProjects.website[0],
+    taggedProjects.logo[1],
+    taggedProjects.flyer[1],
+    taggedProjects.website[1],
+  ].filter(Boolean) as Project[];
+
+  const kanbanColumns2: Project[][] = [[], []];
+  const kanbanColumns3: Project[][] = [[], [], []];
+
+  selectedProjects.forEach((project, index) => {
+    kanbanColumns2[index % 2].push(project);
+    kanbanColumns3[index % 3].push(project);
+  });
+
   return (
     <CustomDiv className="">
       <motion.div
@@ -56,17 +73,38 @@ export default async function MyPortfolio({}: IMyPortfolioProps) {
         viewport={{ once: true }}
         className="mt-20"
       >
-        <section
-          className={`grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10`}
-        >
-          {[
-            taggedProjects.logo[0],
-            taggedProjects.flyer[0],
-            taggedProjects.website[0],
-            taggedProjects.logo[1],
-          ].map((project, index) => (
-            <ProjectCard project={project} key={project.projectName + index} />
-          ))}
+        <section className="mb-10 w-full">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:hidden items-start">
+            {kanbanColumns2.map((column, columnIndex) => (
+              <div
+                key={`md-${columnIndex}`}
+                className="flex flex-col gap-6 rounded-[24px] w-full"
+              >
+                {column.map((project, index) => (
+                  <ProjectCard
+                    project={project}
+                    key={`${project.projectName}-${index}`}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="hidden gap-6 lg:grid lg:grid-cols-3 items-start">
+            {kanbanColumns3.map((column, columnIndex) => (
+              <div
+                key={`lg-${columnIndex}`}
+                className="flex flex-col gap-6 rounded-[24px] w-full"
+              >
+                {column.map((project, index) => (
+                  <ProjectCard
+                    project={project}
+                    key={`${project.projectName}-${index}`}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
         </section>
 
         <Button asChild className="mt-10 max-w-fit mx-auto">

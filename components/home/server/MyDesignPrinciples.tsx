@@ -19,7 +19,7 @@ const cardVariants = {
 
 export default function MyDesignPrinciples() {
   return (
-    <CustomDiv style="lg:w-9/10 pb-15">
+    <section className="w-[95%] md:w-[90%]  max-size mx-auto">
       <Section
         title="My Design Principles"
         description="The Foundation of Great Design"
@@ -53,6 +53,6 @@ export default function MyDesignPrinciples() {
           </motion.article>
         ))}
       </motion.div>
-    </CustomDiv>
+    </section>
   );
 }

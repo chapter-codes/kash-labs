@@ -2,7 +2,8 @@
 import { Metadata } from "next";
 
 //components
-import CustomDiv from "@/components/common/CustomDiv";
+import "@/app/assets/css/smooth-scroll.css";
+
 import Section from "@/components/common/Section";
 import LetsWorkTogether from "@/components/home/server/LetsWorkTogether";
 import SearchFilterSort from "@/components/home/client/SearchFilterSort";
@@ -11,12 +12,45 @@ import { client } from "@/sanity/client";
 import ProjectCard from "@/components/home/server/ProjectCard";
 import Header from "@/components/home/server/Header";
 import Pagination from "@/components/portfolio/client/Pagination";
-import * as motion from 'motion/react-client';
-
+import * as motion from "motion/react-client";
 
 export const metadata: Metadata = {
   title: "kashLabs | Portfolio",
-  description: "My Portfolio",
+  description:
+    "Explore KashLabs’ portfolio of high-impact web, branding, and UX design work.",
+  keywords: [
+    "portfolio",
+    "UI/UX design",
+    "branding",
+    "graphic design",
+    "web design",
+    "KashLabs",
+  ],
+  openGraph: {
+    title: "kashLabs | Portfolio",
+    description:
+      "Explore KashLabs’ portfolio of high-impact web, branding, and UX design work.",
+    type: "website",
+    siteName: "kashLabs",
+    locale: "en_US",
+    url: "https://kashlabs.com/portfolio",
+    images: [
+      {
+        url: "/icons/brandname-dark.svg",
+        width: 1200,
+        height: 630,
+        alt: "kashLabs portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "kashLabs | Portfolio",
+    description:
+      "Explore KashLabs’ portfolio of high-impact web, branding, and UX design work.",
+    creator: "@kashlabs",
+    images: ["/icons/brandname-dark.svg"],
+  },
 };
 
 interface PortfolioSearchParams extends Record<string, string | undefined> {
@@ -93,26 +127,86 @@ export default async function Portfolio({
   const totalCount: number = await client.fetch(countQuery, params);
   const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
 
+  const kanbanColumns2: Project[][] = [[], []];
+  const kanbanColumns3: Project[][] = [[], [], []];
+
+  projects.forEach((project, index) => {
+    kanbanColumns2[index % 2].push(project);
+    kanbanColumns3[index % 3].push(project);
+  });
+
   return (
     <>
       <Header animate={false} />
-      
+
       <Section
         title="My Portfolio"
         description="Showcasing my best work across different industries"
-        style="w-full flex flex-col items-start md:items-center"
+        style="w-full flex flex-col items-center text-center "
       />
       <SearchFilterSort />
       {search && (
-        <motion.div className="text-lg font-semibold text-gray-800 mb-4">
-          {projects.length} search results for "{search}"
+        <motion.div className="text-lg text-center font-semibold  mb-4 custom-sizing">
+          <span className="text-btn-bg">{projects.length}</span> search results
+          for <span className="text-btn-bg">"{search}" </span> under
+          <span className="text-btn-bg">
+            {" "}
+            "{category || "all categories"}"{" "}
+          </span>
+          sorted by
+          <span className="text-btn-bg"> "{sort || "default sorting"}"</span>
         </motion.div>
       )}
-      <section className="grid md:grid-cols-2 justify-items-center justify-center gap-x-5 gap-y-10 custom-sizing">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="custom-sizing mb-10"
+      >
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:hidden items-start">
+          {kanbanColumns2.map((column, columnIndex) => (
+            <div
+              key={`md-${columnIndex}`}
+              className="flex flex-col gap-6 rounded-[24px]"
+            >
+              {column.map((project, index) => (
+                <ProjectCard
+                  project={project}
+                  key={`${project.projectName}-${index}`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="w-full hidden gap-6 lg:grid lg:grid-cols-3 items-start">
+          {kanbanColumns3.map((column, columnIndex) => (
+            <div
+              key={`lg-${columnIndex}`}
+              className="flex flex-col gap-6 rounded-[24px]"
+            >
+              {column.map((project, index) => (
+                <ProjectCard
+                  project={project}
+                  key={`${project.projectName}-${index}`}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </motion.section>
+      {/* <motion.section
+        key={`${search || "all"}-${category || "all"}-${sort || "default"}-${currentPage}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="grid md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center gap-x-5 gap-y-10 custom-sizing"
+      >
         {projects.map((project, index) => (
           <ProjectCard project={project} key={project.projectName + index} />
         ))}
-      </section>
+      </motion.section> */}
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}

@@ -1,32 +1,64 @@
 "use client";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { useActionState } from "react";
-// import type { ContactFormstate } from "../types";
 import { LoaderCircle } from "lucide-react";
 
-type ContactFormType = {
-  // action: (
-  //   prevState: ContactFormstate,
-  //   formData: FormData
-  // ) => Promise<typeof initialState>;
+type ContactStatus = {
+  state: "idle" | "pending" | "success" | "error";
+  message: string;
 };
 
-// export const initialState: ContactFormstate = {
-//   success: false,
-//   error: {},
-// };
+export default function contactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<ContactStatus>({
+    state: "idle",
+    message: "",
+  });
 
-export default function contactForm({
-  // action: handleContactForm,
-}: ContactFormType) {
-  // const [state, action, pending] = useActionState(
-  //   handleContactForm,
-  //   initialState
-  // );
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status.state === "pending") return;
+
+    setStatus({ state: "pending", message: "Sending message..." });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setStatus({
+          state: "error",
+          message: result.error || "Unable to send message.",
+        });
+      } else {
+        setStatus({ state: "success", message: "Message sent successfully!" });
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      setStatus({
+        state: "error",
+        message: "Unable to send message. Please try again.",
+      });
+    }
+  };
 
   return (
     <form
-      action='/'
+      onSubmit={handleSubmit}
       className="basis-1/2 flex flex-col gap-5 max-w-[600px]"
       autoComplete="off"
     >
@@ -37,12 +69,10 @@ export default function contactForm({
           placeholder="Name"
           id="name"
           className="h-11 w-full border rounded-lg pl-6.5"
-          // defaultValue={state.name || ""}
+          value={formData.name}
+          onChange={handleChange}
           required
         />
-        <p className="text-sm text-red-400 py-2">
-          {/* {state.error?.name ? state.error?.name + "*" : null} */}
-        </p>
       </label>
       <label htmlFor="email">
         <input
@@ -50,13 +80,11 @@ export default function contactForm({
           type="email"
           placeholder="Email"
           name="email"
-          // defaultValue={state.email || ""}
+          value={formData.email}
+          onChange={handleChange}
           className="h-11 w-full border rounded-lg pl-6.5"
           required
         />
-        <p className="text-sm text-red-400 py-2">
-          {/* {state.error?.email ? state.error?.email + "*" : null} */}
-        </p>
       </label>
       <label htmlFor="message">
         <textarea
@@ -64,16 +92,24 @@ export default function contactForm({
           id="message"
           className="h-40 w-full border resize-none rounded-lg pl-6.5 pt-5"
           placeholder="Type your message here"
-          // defaultValue={state.message || ""}
+          value={formData.message}
+          onChange={handleChange}
           required
         ></textarea>
-        <p className="text-sm text-red-400 py-2">
-          {/* {state.error?.message ? state.error?.message + "*" : null} */}
-        </p>
       </label>
+      {status.message ? (
+        <p
+          className={`text-sm ${status.state === "error" ? "text-red-400" : "text-emerald-500"}`}
+        >
+          {status.message}
+        </p>
+      ) : null}
       <Button type="submit" className="w-full md:max-w-fit md:self-end">
-        Submit
-        {/* {pending ? <LoaderCircle className="animate-spin w-8" /> : "submit"} */}
+        {status.state === "pending" ? (
+          <LoaderCircle className="animate-spin w-5 h-5" />
+        ) : (
+          "Submit"
+        )}
       </Button>
     </form>
   );
